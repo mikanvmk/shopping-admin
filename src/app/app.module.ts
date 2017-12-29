@@ -6,18 +6,22 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {
-  MatButtonModule, MatCardModule, MatCheckboxModule, MatIconModule, MatInputModule, MatMenuModule,
-  MatTabsModule, MatToolbarModule
+  MatButtonModule, MatCheckboxModule, MatInputModule, MatTooltip, MatTooltipModule
 } from "@angular/material";
 import {FormsModule} from "@angular/forms";
 import {CommonModule} from "@angular/common";
-import { FlexLayoutModule } from "@angular/flex-layout";
-
+import {FlexLayoutModule} from "@angular/flex-layout";
+import {UserService} from "./service/user.service";
+import {environment} from "../environments/environment";
+import {AngularFireModule} from "angularfire2";
+import {Login} from "./component/login/login";
+import {AngularFireAuthModule} from "angularfire2/auth";
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    Login
   ],
   imports: [
     BrowserModule,
@@ -26,9 +30,11 @@ import { FlexLayoutModule } from "@angular/flex-layout";
     FormsModule,
     CommonModule,
     FlexLayoutModule,
-    MatButtonModule, MatCheckboxModule, MatMenuModule, MatCardModule, MatInputModule, MatTabsModule , MatToolbarModule, MatIconModule
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
+    MatButtonModule, MatCheckboxModule, MatInputModule, MatTooltipModule
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

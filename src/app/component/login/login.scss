@@ -1,0 +1,43 @@
+.login {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  padding: 10px;
+  .logo {
+    text-align: center;
+  }
+
+  .content {
+    border: 1px solid #3f51b5;
+    border-radius: 5px;
+    .form-header {
+      padding: 10px;
+      text-align: center;
+      background-color: #3f51b5;
+      color: white;
+      text-transform: uppercase;
+    }
+    #loginForm {
+      padding: 10px;
+      min-width: 150px;
+      max-width: 500px;
+      width: 100%;
+    }
+
+    .form-footer {
+      margin-top: 10px;
+      a {
+        padding: 0;
+      }
+    }
+
+    .full-width {
+      width: 100%;
+    }
+
+  }
+}

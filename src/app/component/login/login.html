@@ -1,0 +1,42 @@
+<div class="login" fxLayout="column">
+  <div class="logo">
+    <img src="{{Constant.icon_url_logo}}" alt="logo">
+  </div>
+  <div class="content">
+    <div class="form-header">
+      Login
+    </div>
+    <div fxLayout="row">
+      <form method="POST" action="javascript:void(0);" name="form" id="loginForm"
+            #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm.value)" accept-charset="UTF-8">
+        <mat-form-field class="full-width">
+          <input matInput name="email" type="email" ngModel #email="ngModel"
+                 maxlength="40"
+                 minlength="8"
+                 placeholder="Email" required>
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <input matInput name="password" type="password" ngModel #password="ngModel"
+                 maxlength="40"
+                 minlength="8"
+                 placeholder="Password"
+                 #tooltip="matTooltip" [matTooltipDisabled]="!isCapslock"
+                 matTooltip="message.capslock" [matTooltipPosition]="'left'"
+                 (focus)="onFocusPass()"
+                 (blur)="onBlurPass()" required>
+        </mat-form-field>
+        <div class="form-group">
+          <button mat-raised-button class="full-width" color="primary">Đăng nhập</button>
+        </div>
+        <div class="form-footer" fxLayout="row">
+          <div class="form-group pull-left" fxFlex>
+            <a mat-button routerLink="{{Constant.url_forgot}}" color="primary">Quên mật khẩu ?</a>
+          </div>
+          <div class="form-group pull-right" style="text-align: right;" fxFlex>
+            <a mat-button routerLink="{{Constant.url_register_investor}}" color="primary" style="text-align: right;">Đăng ký </a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

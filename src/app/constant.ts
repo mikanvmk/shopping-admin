@@ -1,9 +1,15 @@
 export class Constant {
 
+  public static path_login = 'login';
   public static path_home = 'home';
-  public static url_home = "/" + Constant.path_home;
+  public static path_main = 'main';
+  public static url_home = "/" + Constant.path_main + "/" + Constant.path_home;
+  public static url_login = "/" + Constant.path_login;
+
+  public static url_module_main = "./component/main/main.module#MainModule";
 
   public static icon_picture_default = "";
+  public static icon_url_logo = "http://wordpress.vinagecko.net/t/bonnie/wp-content/uploads/2015/07/logo.png";
 
 
   public static checkMobile() {
