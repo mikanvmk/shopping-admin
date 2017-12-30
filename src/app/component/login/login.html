@@ -1,4 +1,5 @@
-<div class="login" fxLayout="column">
+<loading [hide]="!isLoading"></loading>
+<div class="login" fxLayout="column" [hidden]="isLoading">
   <div class="logo">
     <img src="{{Constant.icon_url_logo}}" alt="logo">
   </div>

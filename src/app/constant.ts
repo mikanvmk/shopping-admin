@@ -12,6 +12,11 @@ export class Constant {
   public static icon_url_logo = "http://wordpress.vinagecko.net/t/bonnie/wp-content/uploads/2015/07/logo.png";
 
 
+  public static ERROR_PASSWORD = 'auth/wrong-password';
+  public static ERROR_EMAIL = 'auth/user-not-found';
+
+  public static extension_img = "jpg|JPG|jpeg|JPEG|tiff|TIFF|png|PNG|bmp|BMP|bgp|BGP|PPM|ppm|PGM|pgm|pbm|PBM|ico|ICO|PGF|pgf|IMG|img";
+
   public static checkMobile() {
     let check = false;
     (function (a) {

@@ -1,8 +1,7 @@
 <div class="top-bar row">
   <span>Third Line</span>
   <span class="example-spacer"></span>
-  <button mat-button>Giỏ hàng</button>
-  <button mat-button>Đăng nhập</button>
+  <button mat-button (click)="logout()">Đăng xuất</button>
 </div>
 <div class="header row">
   <span class="example-spacer" fxShow [fxShow.gt-sm]="false"></span>

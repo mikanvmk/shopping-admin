@@ -6,7 +6,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {
-  MatButtonModule, MatCheckboxModule, MatInputModule, MatTooltip, MatTooltipModule
+  MatButtonModule, MatCheckboxModule, MatDialogModule, MatInputModule, MatTooltipModule
 } from "@angular/material";
 import {FormsModule} from "@angular/forms";
 import {CommonModule} from "@angular/common";
@@ -16,12 +16,19 @@ import {environment} from "../environments/environment";
 import {AngularFireModule} from "angularfire2";
 import {Login} from "./component/login/login";
 import {AngularFireAuthModule} from "angularfire2/auth";
+import {ErrorDialog} from "./component/dialog/error/error.dialog";
+import {Loading} from "./service/loading";
+import {UploadService} from "./uploads/shared/upload.service";
+import {AngularFireDatabaseModule} from "angularfire2/database";
+import {AngularFirestoreModule} from "angularfire2/firestore";
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    Login
+    Login,
+    ErrorDialog,
+    Loading
   ],
   imports: [
     BrowserModule,
@@ -32,9 +39,12 @@ import {AngularFireAuthModule} from "angularfire2/auth";
     FlexLayoutModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
-    MatButtonModule, MatCheckboxModule, MatInputModule, MatTooltipModule
+    AngularFireDatabaseModule,
+    AngularFirestoreModule,
+    MatButtonModule, MatCheckboxModule, MatInputModule, MatTooltipModule,MatDialogModule
   ],
-  providers: [UserService],
+  entryComponents: [ErrorDialog],
+  providers: [UserService,UploadService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

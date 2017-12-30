@@ -11,6 +11,8 @@ import {environment} from "../../../environments/environment";
 import {MainComponent} from "./main.component";
 import {MainRouting} from "./main.routing";
 import {Home} from "../home/home";
+import {SwiperModule} from "angular2-useful-swiper";
+import {FileUploadModule} from "ng2-file-upload";
 
 
 @NgModule({
@@ -23,7 +25,9 @@ import {Home} from "../home/home";
     FormsModule,
     CommonModule,
     FlexLayoutModule,
+    SwiperModule,
     AngularFireModule.initializeApp(environment.firebase),
+    FileUploadModule,
     MatButtonModule, MatCheckboxModule, MatMenuModule, MatCardModule, MatInputModule, MatTabsModule , MatToolbarModule, MatIconModule,
     MatTooltipModule
   ]

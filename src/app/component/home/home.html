@@ -1,1 +1,25 @@
-Home
+<div class="home">
+  <div class="banner">
+    <swiper class="swiper-container gallery-top" #galleryTop [config]="galleryTopConfig">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide" *ngFor="let item of banner" [ngStyle]="{'background-image' : 'url(' + item + ')'}"></div>
+        <div class="swiper-slide add-photo">
+          <input type="file" class="upload-file" ng2FileSelect [uploader]="uploader" (change)="uploadFile()">
+          <img src="./assets/icon/ic_add_a_photo_white_36px.svg" alt="add">
+        </div>
+      </div>
+      <!-- Add Arrows -->
+      <div class="swiper-button-next swiper-button-white"></div>
+      <div class="swiper-button-prev swiper-button-white"></div>
+    </swiper>
+    <swiper class="swiper-container gallery-thumbs" #galleryThumbs [config]="galleryThumbsConfig">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide" *ngFor="let item of banner" [ngStyle]="{'background-image' : 'url(' + item + ')'}"></div>
+        <div class="swiper-slide add-photo">
+          <input type="file" class="upload-file" ng2FileSelect [uploader]="uploader" (change)="uploadFile()">
+          <img src="./assets/icon/ic_add_a_photo_white_36px.svg" alt="add">
+        </div>
+      </div>
+    </swiper>
+  </div>
+</div>
