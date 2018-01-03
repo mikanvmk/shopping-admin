@@ -6,7 +6,10 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {
-  MatButtonModule, MatCheckboxModule, MatDialogModule, MatInputModule, MatTooltipModule
+  MatButtonModule, MatCardModule, MatCheckboxModule, MatDialogModule, MatIconModule, MatInputModule, MatMenuModule,
+  MatTabsModule,
+  MatToolbarModule,
+  MatTooltipModule
 } from "@angular/material";
 import {FormsModule} from "@angular/forms";
 import {CommonModule} from "@angular/common";
@@ -21,14 +24,22 @@ import {Loading} from "./service/loading";
 import {UploadService} from "./uploads/shared/upload.service";
 import {AngularFireDatabaseModule} from "angularfire2/database";
 import {AngularFirestoreModule} from "angularfire2/firestore";
+import {LoadingDialog} from "./component/dialog/loading.dialog";
+import {MainComponent} from "./component/main/main.component";
+import {Home} from "./component/home/home";
+import {SwiperModule} from "angular2-useful-swiper/lib/swiper.module";
+import {FileUploadModule} from "ng2-file-upload";
 
 
 @NgModule({
   declarations: [
     AppComponent,
     Login,
+    MainComponent,
+    Home,
     ErrorDialog,
-    Loading
+    Loading,
+    LoadingDialog
   ],
   imports: [
     BrowserModule,
@@ -41,10 +52,12 @@ import {AngularFirestoreModule} from "angularfire2/firestore";
     AngularFireAuthModule,
     AngularFireDatabaseModule,
     AngularFirestoreModule,
-    MatButtonModule, MatCheckboxModule, MatInputModule, MatTooltipModule,MatDialogModule
+    SwiperModule,
+    MatButtonModule, MatCheckboxModule, MatInputModule, MatTooltipModule,MatDialogModule,
+    FileUploadModule, MatMenuModule, MatCardModule, MatTabsModule , MatToolbarModule, MatIconModule,
   ],
-  entryComponents: [ErrorDialog],
-  providers: [UserService,UploadService],
+  entryComponents: [ErrorDialog,LoadingDialog],
+  providers: [UserService,UploadService,LoadingDialog],
   bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -46,6 +46,16 @@ export class UploadService {
       })
       .catch(error => console.log(error))
   }
+
+  deleteFile(url:string) {
+    return new Promise<boolean>(resolve => {
+      let name = url.substring(url.indexOf('%2F')+3,url.indexOf('?'));
+      let storageRef = this.firebase.app.storage().ref();
+      storageRef.child(`${this.basePath}/${name}`).delete()
+        .then(()=>resolve(true))
+        .catch(()=>resolve(false))
+    })
+  }
   // Deletes the file details from the realtime db
   private deleteFileData(key: string) {
     return this.db.list(`${this.basePath}/`).remove(key);

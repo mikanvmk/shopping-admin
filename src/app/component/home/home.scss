@@ -43,16 +43,26 @@
   opacity: 1;
 }
 
+.swiper-slide.photo {
+  position: relative;
+  .delete {
+    background-color: transparent;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}
 .swiper-slide.add-photo {
   position: relative;
   display: flex;
   align-content: center;
   justify-content: center;
   align-items: center;
-
-  .upload-file {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-  }
+}
+.upload-file {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  z-index: 1;
 }

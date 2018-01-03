@@ -2,10 +2,19 @@
   <div class="banner">
     <swiper class="swiper-container gallery-top" #galleryTop [config]="galleryTopConfig">
       <div class="swiper-wrapper">
-        <div class="swiper-slide" *ngFor="let item of banner" [ngStyle]="{'background-image' : 'url(' + item + ')'}"></div>
+        <div class="swiper-slide photo" *ngFor="let item of banner" [ngStyle]="{'background-image' : 'url(' + item.url + ')'}">
+          <div class="delete" fxLayout="row">
+            <div style="position: relative">
+              <input type="file" class="upload-file" *ngIf="!isUpload" ng2FileSelect [uploader]="uploader" (change)="uploadFile(item.id)">
+              <button mat-button (click)="edit(item)"><i class="material-icons">edit</i></button>
+            </div>
+            <button mat-button (click)="remove(item)"><i class="material-icons">clear</i></button>
+          </div>
+        </div>
         <div class="swiper-slide add-photo">
-          <input type="file" class="upload-file" ng2FileSelect [uploader]="uploader" (change)="uploadFile()">
-          <img src="./assets/icon/ic_add_a_photo_white_36px.svg" alt="add">
+          <input type="file" class="upload-file" *ngIf="!isUpload" ng2FileSelect [uploader]="uploader" (change)="uploadFile()">
+          <img src="./assets/icon/ic_add_a_photo_white_36px.svg" alt="add" [hidden]="isLoadingUpload">
+          <img src="https://s3-ap-southeast-1.amazonaws.com/finandesk-static/assets/images/icon/loading.svg" alt="loading" [hidden]="!isLoadingUpload">
         </div>
       </div>
       <!-- Add Arrows -->
@@ -14,9 +23,9 @@
     </swiper>
     <swiper class="swiper-container gallery-thumbs" #galleryThumbs [config]="galleryThumbsConfig">
       <div class="swiper-wrapper">
-        <div class="swiper-slide" *ngFor="let item of banner" [ngStyle]="{'background-image' : 'url(' + item + ')'}"></div>
+        <div class="swiper-slide" *ngFor="let item of banner" [ngStyle]="{'background-image' : 'url(' + item.url + ')'}"></div>
         <div class="swiper-slide add-photo">
-          <input type="file" class="upload-file" ng2FileSelect [uploader]="uploader" (change)="uploadFile()">
+          <input type="file" class="upload-file" *ngIf="!isUpload" ng2FileSelect [uploader]="uploader" (change)="uploadFile()">
           <img src="./assets/icon/ic_add_a_photo_white_36px.svg" alt="add">
         </div>
       </div>

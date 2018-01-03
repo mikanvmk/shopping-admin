@@ -69,6 +69,9 @@ input {
 }
 
 .loading { border-bottom-left-radius: 5px;border-bottom-right-radius: 5px;background-color:transparent; text-align: center; }
+.loading-dialog {
+  background: transparent;
+}
 .isCenter {
   position: fixed;
   top: 50%;
