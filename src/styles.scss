@@ -92,3 +92,28 @@ input {
   background-color: rgba(34,87,167,1);
   border: 2px solid rgba(34,87,167,1);
 }
+.collapsible {
+  box-shadow: none !important;
+  border: none !important;
+}
+
+.collapsible-header,.collapsible-body {
+  background-color: transparent !important;
+  color: white;
+  border: none !important;
+  padding: 0;
+}
+
+.text-overflow {
+  display: block;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}

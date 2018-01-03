@@ -1,54 +1,71 @@
-<div class="top-bar row">
-  <span>Third Line</span>
-  <span class="example-spacer"></span>
-  <button mat-button (click)="logout()">Đăng xuất</button>
-</div>
-<div class="header row">
-  <span class="example-spacer" fxShow [fxShow.gt-sm]="false"></span>
-  <a routerLink="/home"><img src="http://wordpress.vinagecko.net/t/bonnie/wp-content/uploads/2015/07/logo.png" alt="logo"></a>
-  <span class="example-spacer"></span>
-  <div class="item-header row" fxHide [fxHide.gt-sm]="false">
-    <button mat-mini-fab color="primary"><mat-icon><i class="material-icons">local_shipping</i></mat-icon></button>
-    <div class="column">
-      <span>MIỄN PHÍ VẬN CHUYỂN</span>
-      <span>Miễn phí trên tất cả sản phẩm</span>
+<mat-drawer-container class="main-container" fxFlex>
+  <mat-drawer class="mat-drawer" mode="side" [opened]="!Constant.checkMobile()">
+    <div class="logo">
+      <span class="example-spacer" fxShow [fxShow.gt-sm]="false"></span>
+      <a routerLink="/home"><img src="http://wordpress.vinagecko.net/t/bonnie/wp-content/uploads/2015/07/logo.png" alt="logo"></a>
     </div>
-  </div>
-  <span class="example-spacer" fxHide [fxHide.gt-sm]="false"></span>
-  <div class="item-header row" fxHide [fxHide.gt-sm]="false">
-    <button mat-mini-fab color="primary"><mat-icon><i class="material-icons">laptop_mac</i></mat-icon></button>
-    <div class="column">
-      <span>ĐẶT HÀNG TRỰC TUYẾN</span>
-      <span>Phone : 01626254067</span>
+    <div class="sidebar-wrapper">
+      <mz-collapsible
+        [mode]="'accordion'"
+        [onClose]="closeFunctionCallback"
+        [onOpen]="openFunctionCallback">
+        <mz-collapsible-item [active]="false">
+          <mz-collapsible-item-header>
+            <div fxLayout="row">
+              <img class="photo-user" src="{{user?.photoURL ? user?.photoURL : Constant.icon_picture_default}}" alt="photo" height="35">
+              <div class="email-user">
+                <div class="text-overflow">
+                  {{user?.email}}
+                </div>
+              </div>
+            </div>
+          </mz-collapsible-item-header>
+          <mz-collapsible-item-body>
+            <div class="user-function" fxLayout="column">
+              <button mat-button>My Profile</button>
+              <button mat-button>Edit Profile</button>
+              <button mat-button>Setting</button>
+            </div>
+          </mz-collapsible-item-body>
+        </mz-collapsible-item>
+      </mz-collapsible>
     </div>
-  </div>
-  <span class="example-spacer" fxHide [fxHide.gt-sm]="false"></span>
-  <div class="item-header row" fxHide [fxHide.gt-sm]="false">
-    <button mat-mini-fab color="primary"><mat-icon><i class="material-icons">store</i></mat-icon></button>
-    <div class="column">
-      <span>MIỄN PHÍ VẬN CHUYỂN</span>
-      <span>Miễn phí trên tất cả sản phẩm</span>
+    <div class="component" fxLayout="column">
+      <a class="btn-dashboard" routerLink="{{Constant.url_dashboard}}" (click)="title = Constant.path_dashboard" routerLinkActive="active" mat-button fxFlex>Dashboard</a>
+      <a class="btn-dashboard" routerLink="{{Constant.url_banner}}" (click)="title = Constant.path_banner" routerLinkActive="active" mat-button fxFlex>Banner</a>
+      <mz-collapsible
+        [mode]="'accordion'"
+        [onClose]="closeFunctionCallback"
+        [onOpen]="openFunctionCallback">
+        <mz-collapsible-item [active]="false">
+          <mz-collapsible-item-header>
+            <div fxLayout="row">
+              <div class="email-user">
+                <div class="text-overflow">
+                  Create product
+                </div>
+              </div>
+            </div>
+          </mz-collapsible-item-header>
+          <mz-collapsible-item-body>
+            <div class="user-function" fxLayout="column">
+              <button mat-button>My Profile</button>
+              <button mat-button>Edit Profile</button>
+              <button mat-button>Setting</button>
+            </div>
+          </mz-collapsible-item-body>
+        </mz-collapsible-item>
+      </mz-collapsible>
     </div>
-  </div>
-  <span class="example-spacer" fxHide [fxHide.gt-sm]="false"></span>
-  <div class="item-header row" fxHide [fxHide.gt-sm]="false">
-    <button mat-mini-fab color="primary"><mat-icon><i class="material-icons">local_grocery_store</i></mat-icon></button>
-    <div class="column">
-      <span>GIỎ HÀNG</span>
-      <span>Total : {{total | number}}</span>
+    <div class="sidebar-background"></div>
+  </mat-drawer>
+  <mat-drawer-content>
+    <div class="top-bar row">
+      <span class="capitalize">{{title}}</span>
+      <span class="example-spacer"></span>
+      <button mat-button><mat-icon><i class="material-icons">person</i></mat-icon></button>
+      <button mat-button (click)="logout()">Đăng xuất</button>
     </div>
-  </div>
-</div>
-<mat-toolbar color="primary">
-  <mat-toolbar-row>
-    <span class="example-spacer"></span>
-    <button mat-button matSuffix mat-icon-button aria-label="Clear" (click)="search()">
-      <i class="material-icons">search</i>
-    </button>
-    <input class="search-input" type="text" name="name" placeholder="Search product..." [(ngModel)]="value"/>
-    <button mat-button [hidden]="!value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
-      <mat-icon>close</mat-icon>
-    </button>
-  </mat-toolbar-row>
-</mat-toolbar>
-<router-outlet></router-outlet>
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+</mat-drawer-container>

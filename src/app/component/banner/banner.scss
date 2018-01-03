@@ -1,13 +1,16 @@
 .banner {
+  padding: 30px 15px;
+}
+.content {
   background: #000;
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
   font-size: 14px;
   color: #000;
   margin: 0;
-  padding: 0;
   height: 500px;
-  max-width: 980px;
   width: 100%;
+  box-shadow: 0 1px 4px 0 rgba(0,0,0,.14);
+  border-radius: 6px
 }
 
 .swiper-container {

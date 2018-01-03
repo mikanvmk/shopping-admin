@@ -1,49 +1,100 @@
+$default-padding: 10px;
 
-$default-padding : 10px;
+.mat-drawer {
+  width: 260px;
+  box-shadow: 0 10px 30px -12px rgba(0,0,0,.42), 0 4px 25px 0 rgba(0,0,0,.12), 0 8px 10px -5px rgba(0,0,0,.2);
+}
+.mat-drawer .sidebar-background:after {
+  position: absolute;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+  content: "";
+  display: block;
+  background: #fff;
+  opacity: .93;
+}
+.mat-drawer .sidebar-background:after {
+  background: #d50000;
+  opacity: .8;
+}
+.mat-drawer .sidebar-background {
+  position: absolute;
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+  display: block;
+  top: 0;
+  left: 0;
+  background-size: cover;
+  background: url(../../../assets/sidebar-1.jpg) 50%;
+}
+
+.logo {
+  padding: 10px 0;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  z-index: 4;
+}
+.sidebar-wrapper,.component {
+  position: relative;
+  display: block;
+  z-index: 4;
+}
+
+.user-function button {
+  text-align: left;
+}
+
+.sidebar:after , .sidebar-wrapper:after, .component .btn-dashboard:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 15px;
+  height: 1px;
+  width: calc(100% - 30px);
+  background-color: hsla(0, 0%, 71%, .3);
+}
+
+.photo-user {
+  border-radius: 50%;
+}
+
+.email-user {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 5px;
+  width: 205px;
+}
 
 .example-icon {
   padding: 0 14px;
-}
 
-.example-spacer {
-  flex: 1 1 auto;
 }
 
 .top-bar {
-  background: #3f51b5;
+  background: transparent;
   padding: $default-padding/2 $default-padding;
-  color: white;
+  color: black;
 }
 
-.header {
-  padding: $default-padding;
-  .item-header {
+.mat-drawer-content {
+  background-color: #eee;
+}
 
+.component {
+  margin: 0 20px 10px;
+  .btn-dashboard.active {
+    background-color: white;
+    box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+    color: black;
   }
-}
-
-.search-input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-  color: white;
-}
-.search-input::-moz-placeholder { /* Firefox 19+ */
-  color: white;
-}
-.search-input:-ms-input-placeholder { /* IE 10+ */
-  color: white;
-}
-.search-input:-moz-placeholder { /* Firefox 18- */
-  color: white;
-}
-
-.search-input {
-  height: 35px;
-  width: 210px;
-  color: white;
-  background-color: transparent;
-  border: none;
-  border-bottom: solid 1px;
-  outline: none;
-  span>label {
+  .btn-dashboard {
+    margin: 10px 0;
+    box-shadow: none;
+    background-color: transparent;
     color: white;
   }
 }

@@ -3,14 +3,16 @@ import { Routes, RouterModule } from '@angular/router';
 import {Constant} from "./constant";
 import {Login} from "./component/login/login";
 import {MainComponent} from "./component/main/main.component";
-import {Home} from "./component/home/home";
+import {Banner} from "./component/banner/banner";
+import {Dashboard} from "./component/dashboard/dashboard";
 
 const routes: Routes = [
   { path: '', redirectTo: Constant.path_login, pathMatch: 'full' },
   { path: Constant.path_login, component: Login },
-  { path: Constant.path_main, component:MainComponent,
+  { path: '', component:MainComponent,
     children: [
-      { path: Constant.path_home, component: Home }
+      { path: Constant.path_dashboard, component: Dashboard },
+      { path: Constant.path_banner, component: Banner }
     ]
   },
 ];

@@ -6,7 +6,10 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {
-  MatButtonModule, MatCardModule, MatCheckboxModule, MatDialogModule, MatIconModule, MatInputModule, MatMenuModule,
+  MatButtonModule, MatCardModule, MatCheckboxModule, MatDialogModule, MatExpansionModule, MatIconModule, MatInputModule,
+  MatListModule,
+  MatMenuModule,
+  MatSidenavModule,
   MatTabsModule,
   MatToolbarModule,
   MatTooltipModule
@@ -26,9 +29,12 @@ import {AngularFireDatabaseModule} from "angularfire2/database";
 import {AngularFirestoreModule} from "angularfire2/firestore";
 import {LoadingDialog} from "./component/dialog/loading.dialog";
 import {MainComponent} from "./component/main/main.component";
-import {Home} from "./component/home/home";
+import {Banner} from "./component/banner/banner";
 import {SwiperModule} from "angular2-useful-swiper/lib/swiper.module";
 import {FileUploadModule} from "ng2-file-upload";
+import {MzCollapsibleModule} from "ng2-materialize";
+import {Dashboard} from "./component/dashboard/dashboard";
+import {Card} from "./component/card/card";
 
 
 @NgModule({
@@ -36,10 +42,12 @@ import {FileUploadModule} from "ng2-file-upload";
     AppComponent,
     Login,
     MainComponent,
-    Home,
+    Banner,
     ErrorDialog,
     Loading,
-    LoadingDialog
+    LoadingDialog,
+    Dashboard,
+    Card
   ],
   imports: [
     BrowserModule,
@@ -55,6 +63,7 @@ import {FileUploadModule} from "ng2-file-upload";
     SwiperModule,
     MatButtonModule, MatCheckboxModule, MatInputModule, MatTooltipModule,MatDialogModule,
     FileUploadModule, MatMenuModule, MatCardModule, MatTabsModule , MatToolbarModule, MatIconModule,
+    MatSidenavModule, MatExpansionModule , MatListModule , MzCollapsibleModule
   ],
   entryComponents: [ErrorDialog,LoadingDialog],
   providers: [UserService,UploadService,LoadingDialog],

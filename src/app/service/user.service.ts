@@ -35,6 +35,10 @@ export class UserService {
     })
   }
 
+  information() {
+    return this.auth.auth.currentUser
+  }
+
   logout() {
     return new Promise<boolean>(resolve => {
       this.auth.auth.signOut()

@@ -33,7 +33,7 @@ export class Login implements OnInit {
       .then(res => {
         this.isLoading = false;
         if (res) {
-          this.router.navigate([Constant.url_home])
+          this.router.navigate([Constant.url_dashboard])
         } else this.router.navigate([Constant.url_login])
       });
   }
@@ -60,7 +60,7 @@ export class Login implements OnInit {
       this.userService.authorizedFirebase(data.email, data.password)
         .then(res => {
           if (res === true) {
-            this.router.navigate([Constant.url_home])
+            this.router.navigate([Constant.url_dashboard])
           } else {
             this.isLoading = false;
           }

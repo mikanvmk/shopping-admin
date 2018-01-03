@@ -11,11 +11,11 @@ import {isNull, isUndefined} from "util";
 
 @Component({
   selector: 'home',
-  templateUrl: "./home.html",
-  styleUrls: ['./home.scss']
+  templateUrl: "./banner.html",
+  styleUrls: ['./banner.scss']
 })
 
-export class Home implements OnInit, AfterViewInit {
+export class Banner implements OnInit, AfterViewInit {
   @ViewChild('galleryTop') galleryTop: SwiperComponent;
   @ViewChild('galleryThumbs') galleryThumbs: SwiperComponent;
   public uploader: FileUploader = new FileUploader({url: ''});
@@ -24,6 +24,7 @@ export class Home implements OnInit, AfterViewInit {
   currentUpload: Upload;
   isUpload = false;
   isLoadingUpload = false;
+  isLoading = true;
 
   galleryTopConfig: any = {
     nextButton: '.swiper-button-next',
@@ -55,6 +56,7 @@ export class Home implements OnInit, AfterViewInit {
               if (res.length > 0) {
                 this.banner = res;
               }
+              this.isLoading = false;
             });
         }
       })

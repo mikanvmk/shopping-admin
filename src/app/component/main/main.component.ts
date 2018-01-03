@@ -13,8 +13,11 @@ import {routerTransition} from "../../service/routerTransition";
 })
 export class MainComponent implements OnInit{
 
+  public Constant = Constant;
+  title = null;
+  user = null;
   constructor(
-    private userService:UserService,
+    public userService:UserService,
     private router:Router
   ){}
 
@@ -23,7 +26,8 @@ export class MainComponent implements OnInit{
     this.userService.isLogin()
       .then(res => {
         if (res) {
-          this.router.navigate([Constant.url_home])
+          this.user = this.userService.information();
+          this.title = location.pathname.substring(1,location.pathname.length)
         } else this.router.navigate([Constant.url_login])
       });
   }
@@ -35,5 +39,13 @@ export class MainComponent implements OnInit{
           this.router.navigate([Constant.url_login])
         }
       })
+  }
+
+  closeFunctionCallback() {
+
+  }
+
+  openFunctionCallback() {
+
   }
 }

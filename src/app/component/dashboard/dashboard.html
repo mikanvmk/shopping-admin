@@ -1,0 +1,6 @@
+<div class="dashboard" fxFlex>
+  <div class="header" fxLayout="row">
+    <card *ngFor="let item of card" [color]="item.color" [icon]="item.icon" [name]="item.name"
+          [number]="item.number" [footerIcon]="item.footerIcon" [footerText]="item.footerText" fxFlex></card>
+  </div>
+</div>
