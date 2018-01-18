@@ -6,7 +6,7 @@ import {Component} from "@angular/core";
   styleUrls : ["./dashboard.scss"]
 })
 
-export class Dashboard {
+export class Dashboard{
 
   card = [
     {
@@ -41,6 +41,52 @@ export class Dashboard {
       footerIcon : 'update',
       footerText : 'Just Updated'
     }
-  ]
+  ];
 
+  //Chart Daily Sales
+  single: any[] = [
+    {
+      "name": 'M',
+      "value": 1
+    },{
+      "name": 'T',
+      "value": 1
+    },{
+      "name": 'W',
+      "value": 1
+    },{
+      "name": 'T',
+      "value": 1
+    },{
+      "name":  'F',
+      "value": 1
+    },{
+      "name": 'S',
+      "value": 1
+    },{
+      "name": 'S',
+      "value": 1
+    },
+  ];
+  multi: any[];
+
+  view: any[];
+
+  // options
+  showXAxis = true;
+  showYAxis = true;
+  gradient = false;
+  showLegend = true;
+
+  colorScheme = {
+    domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
+  };
+
+  constructor() {
+    // Object.assign(this, this.single)
+  }
+
+  onSelect(event) {
+    console.log(event);
+  }
 }

@@ -1,6 +1,6 @@
 <div class="banner">
   <loading [hide]="!isLoading"></loading>
-  <div class="content" [hidden]="isLoading">
+  <div class="content" *ngIf="!isLoading" fxLayout="column">
     <swiper class="swiper-container gallery-top" #galleryTop [config]="galleryTopConfig">
       <div class="swiper-wrapper">
         <div class="swiper-slide photo" *ngFor="let item of banner"

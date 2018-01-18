@@ -56,7 +56,9 @@ export class Banner implements OnInit, AfterViewInit {
               if (res.length > 0) {
                 this.banner = res;
               }
-              this.isLoading = false;
+              setTimeout(()=>{
+                this.isLoading = false;
+              },500)
             });
         }
       })

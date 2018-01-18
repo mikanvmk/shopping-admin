@@ -1,7 +1,6 @@
 <mat-drawer-container class="main-container" fxFlex>
-  <mat-drawer class="mat-drawer" mode="side" [opened]="!Constant.checkMobile()">
+  <mat-drawer class="mat-drawer" #drawer mode="side" [opened]="!Constant.checkMobile()">
     <div class="logo">
-      <span class="example-spacer" fxShow [fxShow.gt-sm]="false"></span>
       <a routerLink="/home"><img src="http://wordpress.vinagecko.net/t/bonnie/wp-content/uploads/2015/07/logo.png" alt="logo"></a>
     </div>
     <div class="sidebar-wrapper">
@@ -31,8 +30,8 @@
       </mz-collapsible>
     </div>
     <div class="component" fxLayout="column">
-      <a class="btn-dashboard" routerLink="{{Constant.url_dashboard}}" (click)="title = Constant.path_dashboard" routerLinkActive="active" mat-button fxFlex>Dashboard</a>
-      <a class="btn-dashboard" routerLink="{{Constant.url_banner}}" (click)="title = Constant.path_banner" routerLinkActive="active" mat-button fxFlex>Banner</a>
+      <a class="btn-dashboard" routerLink="{{Constant.url_dashboard}}" (click)="title = Constant.path_dashboard ; drawer.toggle()" routerLinkActive="active" mat-button fxFlex>Dashboard</a>
+      <a class="btn-dashboard" routerLink="{{Constant.url_banner}}" (click)="title = Constant.path_banner ; drawer.toggle()" routerLinkActive="active" mat-button fxFlex>Banner</a>
       <mz-collapsible
         [mode]="'accordion'"
         [onClose]="closeFunctionCallback"
@@ -59,8 +58,9 @@
     </div>
     <div class="sidebar-background"></div>
   </mat-drawer>
-  <mat-drawer-content>
+  <mat-drawer-content fxFlex>
     <div class="top-bar row">
+      <button mat-icon-button fxHide [fxShow.xs]="true" (click)="drawer.toggle()"><mat-icon><i class="material-icons">menu</i></mat-icon></button>
       <span class="capitalize">{{title}}</span>
       <span class="example-spacer"></span>
       <button mat-button><mat-icon><i class="material-icons">person</i></mat-icon></button>

@@ -14,6 +14,7 @@ import {routerTransition} from "../../service/routerTransition";
 export class MainComponent implements OnInit{
 
   public Constant = Constant;
+  isOpen = false;
   title = null;
   user = null;
   constructor(

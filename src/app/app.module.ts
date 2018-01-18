@@ -35,6 +35,7 @@ import {FileUploadModule} from "ng2-file-upload";
 import {MzCollapsibleModule} from "ng2-materialize";
 import {Dashboard} from "./component/dashboard/dashboard";
 import {Card} from "./component/card/card";
+import {NgxChartsModule} from "@swimlane/ngx-charts";
 
 
 @NgModule({
@@ -63,7 +64,8 @@ import {Card} from "./component/card/card";
     SwiperModule,
     MatButtonModule, MatCheckboxModule, MatInputModule, MatTooltipModule,MatDialogModule,
     FileUploadModule, MatMenuModule, MatCardModule, MatTabsModule , MatToolbarModule, MatIconModule,
-    MatSidenavModule, MatExpansionModule , MatListModule , MzCollapsibleModule
+    MatSidenavModule, MatExpansionModule , MatListModule , MzCollapsibleModule,
+    NgxChartsModule
   ],
   entryComponents: [ErrorDialog,LoadingDialog],
   providers: [UserService,UploadService,LoadingDialog],
